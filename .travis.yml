@@ -8,4 +8,4 @@ cache:
     - $HOME/.m2
 env:
   global:
-    rat.skip=true
+    - rat.skip=true
