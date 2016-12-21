@@ -41,28 +41,21 @@ import org.apache.jena.reasoner.rulesys.Rule;
 import org.apache.jena.reasoner.rulesys.Rule.Parser;
 import org.apache.log4j.Logger;
 import org.apache.rya.api.RdfCloudTripleStoreConfiguration;
-import org.apache.rya.api.RdfCloudTripleStoreConfiguration;
 import org.apache.rya.api.domain.RyaStatement;
 import org.apache.rya.api.persist.RyaDAO;
 import org.apache.rya.api.persist.RyaDAOException;
 import org.apache.rya.api.persist.query.RyaQuery;
 import org.apache.rya.api.resolver.RdfToRyaConversions;
 import org.apache.rya.indexing.GeoConstants;
-import org.apache.rya.indexing.GeoConstants;
-import org.apache.rya.indexing.accumulo.ConfigUtils;
 import org.apache.rya.indexing.accumulo.ConfigUtils;
 import org.apache.rya.jena.jenasesame.JenaSesame;
 import org.apache.rya.mongodb.MockMongoFactory;
 import org.apache.rya.mongodb.MongoConnectorFactory;
 import org.apache.rya.mongodb.MongoDBRdfConfiguration;
-import org.apache.rya.mongodb.MongoDBRdfConfiguration;
 import org.apache.rya.mongodb.MongoDBRyaDAO;
 import org.apache.rya.rdftriplestore.RdfCloudTripleStore;
-import org.apache.rya.rdftriplestore.RdfCloudTripleStore;
-import org.apache.rya.sail.config.RyaSailFactory;
 import org.apache.rya.sail.config.RyaSailFactory;
 import org.calrissian.mango.collect.CloseableIterable;
-import org.glassfish.grizzly.http.util.Charsets;
 import org.openrdf.model.Statement;
 import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.model.impl.URIImpl;
@@ -78,6 +71,7 @@ import org.openrdf.repository.sail.SailRepository;
 import org.openrdf.repository.sail.SailRepositoryConnection;
 import org.openrdf.sail.Sail;
 
+import com.google.common.base.Charsets;
 import com.mongodb.MongoClient;
 import com.mongodb.ServerAddress;
 
@@ -275,7 +269,7 @@ public class MongoRyaDirectExample {
 
             Reasoner reasoner = null;
             try (
-                final InputStream in = IOUtils.toInputStream(ruleSource, Charsets.UTF8_CHARSET);
+                final InputStream in = IOUtils.toInputStream(ruleSource, Charsets.UTF_8);
                 final BufferedReader br = new BufferedReader(new InputStreamReader(in));
             ) {
                 final Parser parser = Rule.rulesParserFromReader(br);
